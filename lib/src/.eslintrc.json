@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "no-use-before-define": "off",
+    "func-style": "off",
+    "@typescript-eslint/no-namespace": "off"
+  }
+}

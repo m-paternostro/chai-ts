@@ -1,0 +1,138 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "tsconfigRootDir": ".",
+    "project": ["./tsconfig.base.json"]
+  },
+  "plugins": ["@typescript-eslint", "import", "simple-import-sort"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier"
+  ],
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^mocha$", "^chai$", "^chai-as-promised$", "^.*-chai\\u0000$", "^.*-chai$"],
+          ["^esbuild$"],
+          ["^node:"],
+          ["^@\\w", "^\\w"],
+          ["^\\.\\u0000$", "^\\."]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    "sort-imports": "off",
+    "no-multiple-empty-lines": "error",
+    "class-methods-use-this": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/extensions": ["error", { "js": "ignorePackages", "g": "always", "json": "always" }],
+    "import/newline-after-import": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["**/tests/**/*.ts", "tests/**/*.ts", "**/build/**/*.ts"] }
+    ],
+    "import/no-unresolved": ["error"],
+    "import/prefer-default-export": "off",
+    "linebreak-style": "off",
+    "lines-between-class-members": "off",
+    "max-classes-per-file": "off",
+    "no-alert": "off",
+    "no-cond-assign": "off",
+    "no-console": "off",
+    "no-nested-ternary": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
+    "no-tabs": ["error"],
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "no-useless-constructor": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["**/index"],
+            "message": "Do not import the index file."
+          },
+          {
+            "group": ["**/internal/**", "!./internal/**"],
+            "message": "Only the parent of an 'internal' folder can import it."
+          },
+          {
+            "group": ["**/tests/**"],
+            "message": "Do not use code from tests."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ForInStatement",
+        "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array."
+      },
+      {
+        "selector": "LabeledStatement",
+        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+      },
+      {
+        "selector": "WithStatement",
+        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+      }
+    ],
+    "no-return-assign": "off",
+    "no-shadow": "off",
+    "no-throw-literal": "error",
+    "no-void": "off",
+    "object-curly-newline": ["error", { "consistent": true }],
+    "prefer-arrow-callback": "error",
+    "func-style": ["error", "expression", { "allowArrowFunctions": true }],
+    "generator-star-spacing": ["error", { "before": false, "after": true }],
+    "prefer-destructuring": "off",
+    "prefer-object-spread": "off",
+    "strict": ["error", "global"],
+    "require-await": "off",
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/member-delimiter-style": ["error"],
+    "@typescript-eslint/array-type": ["error", { "default": "array" }],
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      { "assertionStyle": "as", "objectLiteralTypeAssertions": "allow-as-parameter" }
+    ],
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/explicit-member-accessibility": "error",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/unbound-method": [
+      "error",
+      {
+        "ignoreStatic": true
+      }
+    ],
+    "@typescript-eslint/type-annotation-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true,
+        "overrides": {
+          "arrow": { "before": true, "after": true }
+        }
+      }
+    ],
+    "@typescript-eslint/no-floating-promises": ["error", { "ignoreIIFE": true }]
+  }
+}

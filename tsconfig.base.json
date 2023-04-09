@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "exclude": ["**/node_modules/**/*", "**/dist/**/*", "**/coverage/**/*"],
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "error",
+    "module": "CommonJS",
+    "moduleResolution": "NodeNext",
+    "newLine": "lf",
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2021"
+  },
+  "watchOptions": {
+    "excludeDirectories": ["**/node_modules", "**/coverage", "**/dist", "**/tests"],
+    "fallbackPolling": "dynamicPriority",
+    "synchronousWatchDirectory": true,
+    "watchDirectory": "useFsEvents",
+    "watchFile": "useFsEvents"
+  }
+}
