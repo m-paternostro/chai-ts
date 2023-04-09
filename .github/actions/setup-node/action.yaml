@@ -1,0 +1,15 @@
+name: 'Setup NodeJS'
+description: 'Setup Node'
+inputs:
+  node-version:
+    description: 'Node version'
+    required: true
+    default: '16.15.0'
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: 'npm'
