@@ -1,0 +1,108 @@
+name: CI
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.vscode/**'
+      - 'LICENSE.txt'
+      - '**.md'
+  pull_request:
+    paths-ignore:
+      - '.vscode/**'
+      - 'LICENSE.txt'
+      - '**.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJs
+        uses: ./.github/actions/setup-node
+
+      - name: Install dependencies & build
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+
+      - name: Build TypeScript
+        run: npm run build:ts
+
+      - name: Cancelling parallel jobs
+        if: failure()
+        uses: andymckay/cancel-action@0.2
+
+  format-check:
+    name: Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJs
+        uses: ./.github/actions/setup-node
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Run Format Check
+        run: npm run format:check
+
+      - name: Cancelling parallel jobs
+        if: failure()
+        uses: andymckay/cancel-action@0.2
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJs
+        uses: ./.github/actions/setup-node
+
+      - name: Install dependencies & build
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+
+      - name: Run Lint
+        run: npm run lint
+
+      - name: Cancelling parallel jobs
+        if: failure()
+        uses: andymckay/cancel-action@0.2
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJs
+        uses: ./.github/actions/setup-node
+
+      - name: Install dependencies & build
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+
+      - name: Run Tests
+        run: npm run test
+        shell: bash
+
+      - name: Cancelling parallel jobs
+        if: failure()
+        uses: andymckay/cancel-action@0.2
