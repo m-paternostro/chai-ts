@@ -20,3 +20,7 @@
 ### Publish
 
 - Create a new [release](https://github.com/m-paternostro/chai-ts/releases) using a tag whose format is `v.x.x.x`
+
+## TypeScript
+
+The current TypeScript version for the project is `4.9.x`. When it's time to move up to `5`, both [package.json](./package.json) and [dependabot.yaml](./.github/dependabot.yaml) must be updated accordingly.

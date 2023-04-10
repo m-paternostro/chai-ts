@@ -10,3 +10,5 @@ updates:
     open-pull-requests-limit: 20
     ignore:
       - dependency-name: '@types/node'
+      - dependency-name: 'typescript'
+        versions: ['5.x']
