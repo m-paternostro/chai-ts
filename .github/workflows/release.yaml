@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJs
+        uses: ./.github/actions/setup-node
+        with:
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies & build
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+
+      - name: Create NPM package file
+        run: npm run package
+
+      - name: Upload NPM package file to GitHub Releases
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file_glob: true
+          file: chai-ts-*.*.*.tgz
+          overwrite: true
+          tag: ${{ github.ref }}
+
+      - name: Publish to NPM repository
+        run: npm publish chai-ts-*.*.*.tgz
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
