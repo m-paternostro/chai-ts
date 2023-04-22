@@ -1,5 +1,11 @@
 # Chai Assertions for TypeScript
 
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/m-paternostro/chai-ts/blob/main/LICENSE.txt)
+[![Version](https://img.shields.io/github/package-json/v/m-paternostro/chai-ts)](https://github.com/m-paternostro/chai-ts/blob/main/package.json)
+[![CI](https://github.com/m-paternostro/chai-ts/actions/workflows/ci.yaml/badge.svg)](https://github.com/m-paternostro/chai-ts/actions/workflows/ci.yaml)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/m-paternostro/chai-ts)](https://github.com/m-paternostro/chai-ts/releases)
+[![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?logo=npm&logoColor=white)](https://www.npmjs.com/package/chai-ts)
+
 **Chai TS** extends [Chai](http://chaijs.com/) to allow validating types when testing [Typescript](https://www.typescriptlang.org) code.
 
 ```typescript
