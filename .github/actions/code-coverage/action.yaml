@@ -4,7 +4,7 @@ description: 'Creates and adjust the code coverage report'
 permissions:
   contents: read
   pages: write
-  #id-token: write
+  id-token: write
 
 inputs:
   report-directory:
