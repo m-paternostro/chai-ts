@@ -100,8 +100,10 @@ jobs:
           npm run build
 
       - name: Run Tests
-        run: npm run test
-        shell: bash
+        run: npm run test:coverage
+
+      - name: Code Coverage Report
+        uses: ./.github/actions/code-coverage
 
       - name: Cancelling parallel jobs
         if: failure()

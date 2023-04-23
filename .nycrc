@@ -3,7 +3,7 @@
   "check-coverage": false,
   "all": true,
   "include": ["lib/src/**/*.ts"],
-  "reporter": ["html", "lcov", "text", "text-summary", "json"],
+  "reporter": ["text", "text-summary", "html", "cobertura"],
   "report-dir": "coverage/report",
   "temp-dir": "coverage/temp"
 }

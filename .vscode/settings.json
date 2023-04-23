@@ -48,5 +48,12 @@
   "mochaExplorer.files": ["lib/tests/**/*.ts"],
   "mochaExplorer.require": ["ts-node/register"],
 
-  "cSpell.words": ["Eqls", "Paternostro", "prevalidate", "tsbuildinfo", "Uncapitalize"]
+  "cSpell.words": [
+    "cobertura",
+    "Eqls",
+    "Paternostro",
+    "prevalidate",
+    "tsbuildinfo",
+    "Uncapitalize"
+  ]
 }
