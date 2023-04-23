@@ -19,6 +19,7 @@ runs:
         thresholds: '50 85'
 
     - name: Add Link to Code Coverage HTML
+      shell: bash
       run: sed 's/\(!\[Code Coverage\].*\)/[\1](.\/index.html)/' code-coverage-results.md > ${{ inputs.report-directory }}/code-coverage-results.md
 
     - name: Add Coverage PR Comment
