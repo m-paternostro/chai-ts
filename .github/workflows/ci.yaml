@@ -118,11 +118,12 @@ jobs:
         uses: andymckay/cancel-action@0.2
 
   deploy-coverage:
+    if: github.ref == 'refs/heads/main'
     needs: test
 
     permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
 
     environment:
       name: github-pages
