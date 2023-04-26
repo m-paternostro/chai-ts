@@ -95,11 +95,13 @@ describe('chai-ts', () => {
     it('narrowEql', () => {
       expect([1, 2, 3]).narrowEql([1, 2, 3]);
       expect([1, 2, 3] as unknown[]).to.narrowEql([1, 2, 3]);
+      expect({ a: 1, b: true, c: 'value' }).narrowEql({ a: 1, b: true, c: 'value' });
     });
 
     it('narrowEqls', () => {
       expect([1, 2, 3]).narrowEqls([1, 2, 3]);
       expect([1, 2, 3] as unknown[]).to.narrowEqls([1, 2, 3]);
+      expect({ a: 1, b: true, c: 'value' }).narrowEqls({ a: 1, b: true, c: 'value' });
     });
 
     it('narrowEqual', () => {

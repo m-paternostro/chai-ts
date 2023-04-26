@@ -45,6 +45,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
+  "testExplorer.useNativeTesting": true,
   "mochaExplorer.files": ["lib/tests/**/*.ts"],
   "mochaExplorer.require": ["ts-node/register"],
 

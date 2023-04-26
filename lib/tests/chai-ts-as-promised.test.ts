@@ -41,12 +41,24 @@ describe('chai-ts-as-promised', () => {
       await expect(Promise.resolve([1, 2, 3])).to.eventually.be.narrowEql([1, 2, 3]);
       await expect(Promise.resolve([1, 2, 3] as unknown[])).to.eventually.be.narrowEql([1, 2, 3]);
       await expect(Promise.resolve([1, 2, 3]) as Promise<unknown[]>).to.eventually.be.narrowEql([1, 2, 3]);
+
+      await expect(Promise.resolve({ a: 1, b: true, c: 'value' })).to.eventually.be.narrowEql({
+        a: 1,
+        b: true,
+        c: 'value',
+      });
     });
 
     it('narrowEqls', async () => {
       await expect(Promise.resolve([1, 2, 3])).to.eventually.be.narrowEqls([1, 2, 3]);
       await expect(Promise.resolve([1, 2, 3] as unknown[])).to.eventually.be.narrowEqls([1, 2, 3]);
       await expect(Promise.resolve([1, 2, 3]) as Promise<unknown[]>).to.eventually.be.narrowEqls([1, 2, 3]);
+
+      await expect(Promise.resolve({ a: 1, b: true, c: 'value' })).to.eventually.be.narrowEqls({
+        a: 1,
+        b: true,
+        c: 'value',
+      });
     });
 
     it('narrowEqual', async () => {
