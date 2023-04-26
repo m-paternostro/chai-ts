@@ -22,6 +22,8 @@ As hinted above, **Chai TS** has been created with Chai's `expect` interface in 
 
 A `narrow*` assertion performs the same equality test as its counterparts (so `narrowEq` behaves like `eq`), while validating if the type of its argument can be assigned to the type of the tested value - the "tested value" is typically the argument passed to the `expect` method.
 
+A side benefit of using the `narrow*` assertion methods, in particular the ones for logical equality (like `narrowEql`), is that they may simplify implementing tests because they enable code completion when writing the expected value.
+
 Valid: (the tests pass and the code compiles)
 
 ```typescript

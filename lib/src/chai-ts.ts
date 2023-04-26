@@ -52,9 +52,13 @@ declare global {
        * type of the tested value - i.e., if the expected value can be assigned to a variable
        * that has the type of the tested value.
        *
+       * Besides testing the type, this method simplifies implementing tests because it enables
+       * code completion when writing the expected value.
+       *
        * @example
        * expect([1, 2, 3]).narrowEql([1, 2, 3]);
        * expect([1, 2, 3] as unknown[]).to.narrowEql([1, 2, 3]);
+       * expect({ a: 1, b: true, c: 'value' }).narrowEqls({ a: 1, b: true, c: 'value' });
        */
       narrowEql: NarrowEqual<A>;
 
@@ -63,9 +67,13 @@ declare global {
        * type of the tested value - i.e., if the expected value can be assigned to a variable
        * that has the type of the tested value.
        *
+       * Besides testing the type, this method simplifies implementing tests because it enables
+       * code completion when writing the expected value.
+       *
        * @example
        * expect([1, 2, 3]).narrowEqls([1, 2, 3]);
        * expect([1, 2, 3] as unknown[]).to.narrowEqls([1, 2, 3]);
+       * expect({ a: 1, b: true, c: 'value' }).narrowEqls({ a: 1, b: true, c: 'value' });
        */
       narrowEqls: NarrowEqual<A>;
 
