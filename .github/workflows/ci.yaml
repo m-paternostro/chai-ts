@@ -106,9 +106,11 @@ jobs:
         uses: ./.github/actions/code-coverage
 
       - name: Setup Pages
+        if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v3
 
       - name: Upload artifact
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v1
         with:
           path: './coverage'
