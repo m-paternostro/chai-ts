@@ -7,7 +7,6 @@
 [![CI](https://github.com/m-paternostro/chai-ts/actions/workflows/ci.yaml/badge.svg)](https://github.com/m-paternostro/chai-ts/actions/workflows/ci.yaml)
 [![Coverage](https://m-paternostro.github.io/chai-ts/coverage.svg)](https://m-paternostro.github.io/chai-ts/report/index.html)
 
-
 **Chai TS** extends [Chai](http://chaijs.com/) to allow validating types when testing [Typescript](https://www.typescriptlang.org) code.
 
 ```typescript
